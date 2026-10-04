@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Smart Maharashtra Tourism</title>
+
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8C%BF%3C/text%3E%3C/svg%3E">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="style.css">
+
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+
+<body>
+
+<header class="main-header">
+
+    <div class="logo">
+        🌿 Eco Cultural Travel
+    </div>
+
+    <nav class="top-nav">
+        <a href="index.html" class="active">Home</a>
+        <a href="index.html#destinations">Destinations</a>
+        <a href="trips.html">Plan Trip</a>
+        <a href="reservations.html">My Reservations</a>
+        <a href="profile.html">Profile</a>
+        <a href="partner.html" id="navPartnerLink" style="display:none">Partner Dashboard</a>
+        <a href="admin.html" id="navAdminLink" style="display:none">Admin</a>
+    </nav>
+
+</header>
+
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <p class="hero-tag">🌿 SMART & SUSTAINABLE TOURISM</p>
+
+        <h1>
+            Explore<br>
+            <span>Maharashtra.</span>
+        </h1>
+
+        <p class="hero-description">
+            Discover magnificent forts, peaceful hill stations,
+            beautiful beaches, ancient caves and rich cultural
+            experiences across Maharashtra.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#destinations" class="explore-btn">
+                Explore Destinations →
+            </a>
+
+            <a href="trips.html" class="secondary-btn">
+                Plan My Trip
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<main class="container" id="destinations">
+
+    <div class="section-heading">
+
+        <p>DISCOVER MAHARASHTRA</p>
+
+        <h2>Places Worth Exploring</h2>
+
+        <span>
+            Find destinations for every kind of traveller.
+        </span>
+
+    </div>
+
+
+    <div class="filter-section">
+
+        <button onclick="filterType('All')" class="filter-btn active">
+            🌍 All
+        </button>
+
+        <button onclick="filterType('Trek')" class="filter-btn">
+            🥾 Trek
+        </button>
+
+        <button onclick="filterType('Nature')" class="filter-btn">
+            🌳 Nature
+        </button>
+
+        <button onclick="filterType('Hill Station')" class="filter-btn">
+            ⛰️ Hill Stations
+        </button>
+
+        <button onclick="filterType('Cultural')" class="filter-btn">
+            🏛️ Cultural
+        </button>
+
+        <button onclick="filterType('Religious')" class="filter-btn">
+            🛕 Religious
+        </button>
+
+        <button onclick="filterType('Beach')" class="filter-btn">
+            🏖️ Beaches
+        </button>
+
+        <button onclick="filterType('Historical')" class="filter-btn">
+            🏺 Historical
+        </button>
+
+        <button onclick="filterType('Fort')" class="filter-btn">
+            🏰 Forts
+        </button>
+
+    </div>
+
+
+    <div class="search-box">
+
+        <span>🔍</span>
+
+        <input
+            id="searchInput"
+            type="text"
+            onkeyup="searchPlaces()"
+            placeholder="Search Mumbai, Mahabaleshwar, forts..."
+        >
+
+    </div>
+
+
+    <div id="places"></div>
+
+
+    <section class="map-section">
+
+        <div class="map-heading">
+
+            <div>
+                <p>EXPLORE LOCATIONS</p>
+                <h2>Discover Maharashtra on the Map</h2>
+            </div>
+
+            <span>📍 Interactive Map</span>
+
+        </div>
+
+        <div id="map"></div>
+
+    </section>
+
+</main>
+
+
+<section class="cta-section">
+
+    <div>
+
+        <p>PLAN YOUR NEXT ADVENTURE</p>
+
+        <h2>
+            Your Maharashtra journey<br>
+            starts here.
+        </h2>
+
+        <p>
+            Create a personalised trip and explore more of Maharashtra.
+        </p>
+
+        <a href="trips.html" class="explore-btn">
+            Create My Trip →
+        </a>
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    <div>
+        <h3>🌿 Smart Maharashtra Tourism</h3>
+
+        <p>
+            Discover responsibly. Travel sustainably.
+        </p>
+    </div>
+
+    
+
+    <p class="copyright">
+        © 2026 Smart Maharashtra Tourism
+    </p>
+
+</footer>
+
+
+<nav class="bottom-nav">
+
+    <a href="index.html" class="active">
+        <span>🏠</span>
+        <small>Home</small>
+    </a>
+
+    <a href="index.html#destinations">
+        <span>🗺️</span>
+        <small>Explore</small>
+    </a>
+
+    <a href="reservations.html">
+        <span>🧾</span>
+        <small>Reserved</small>
+    </a>
+
+    <a href="profile.html">
+        <span>👤</span>
+        <small>Profile</small>
+    </a>
+
+</nav>
+
+
+
+<script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "5000:5000"
+    environment:
+      MONGO_URI: mongodb://mongodb:27017/ecotravel
+      # Sole admin account, provisioned on backend startup — never created via
+      # public signup. Override these (e.g. with a .env file or
+      # `docker compose run -e ADMIN_EMAIL=... -e ADMIN_PASSWORD=...`)
+      # rather than committing real credentials here.
+      ADMIN_EMAIL: madhura@ecotravel.com
+      ADMIN_PASSWORD: Madhu@123
+      JWT_SECRET: ECO-TRAVELL-MDMS
+    depends_on:
+      - mongodb
+
+  mongodb:
+    image: mongo:6
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+
+volumes:
+  mongodb_data:

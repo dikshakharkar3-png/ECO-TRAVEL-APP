@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Dashboard | Smart Maharashtra Tourism</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8C%BF%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="main-header">
+    <div class="logo">🌿 Smart Maharashtra — Admin</div>
+    <nav class="top-nav">
+        <a href="index.html">Home</a>
+        <a href="profile.html">Profile</a>
+    </nav>
+</header>
+
+<div class="container">
+
+    <h3>Platform Admin</h3>
+
+    <div class="admin-tabs">
+        <button class="admin-tab active" data-tab="stats" onclick="showAdminTab('stats')">Overview</button>
+        <button class="admin-tab" data-tab="partners" onclick="showAdminTab('partners')">Partners</button>
+        <button class="admin-tab" data-tab="reservations" onclick="showAdminTab('reservations')">Reservations</button>
+        <button class="admin-tab" data-tab="users" onclick="showAdminTab('users')">Users</button>
+        <button class="admin-tab" data-tab="reviews" onclick="showAdminTab('reviews')">Reviews</button>
+    </div>
+
+    <div id="adminBox"></div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Eco Tour</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8C%BF%3C/text%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="login-bg">
+
+    <div class="login-container">
+        <div class="auth-card">
+            <div class="auth-header">
+                <h2>Create Account 🌿</h2>
+                <p>Join Eco-Explorer to plan sustainable trips</p>
+            </div>
+
+            <form id="signupForm" onsubmit="signup(event)">
+
+                <div class="form-group">
+                    <label>I am signing up as</label>
+                    <div class="role-toggle">
+                        <label class="role-option">
+                            <input type="radio" name="signupRole" value="traveller" checked onchange="toggleBusinessField()">
+                            <span>🧳 Traveller</span>
+                        </label>
+                        <label class="role-option">
+                            <input type="radio" name="signupRole" value="partner" onchange="toggleBusinessField()">
+                            <span>🏕️ Tourism Partner</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="signupName">Full Name</label>
+                    <input type="text" id="signupName" placeholder="John Doe" required>
+                </div>
+
+                <div id="businessNameGroup" style="display:none">
+
+                    <div class="form-group">
+                        <label for="businessName">Business / Agency Name</label>
+                        <input type="text" id="businessName" placeholder="e.g. Sahyadri Trail Co.">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="businessPhone">Business Phone</label>
+                        <input type="tel" id="businessPhone" placeholder="+91 90000 00000">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="businessLocation">Operating Location</label>
+                        <input type="text" id="businessLocation" placeholder="e.g. Lonavala, Pune">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="businessDescription">Tell us about your business</label>
+                        <textarea id="businessDescription" rows="3" placeholder="What kind of experiences do you offer? (treks, camping, homestays, cultural tours, etc.)"></textarea>
+                    </div>
+
+                    <p class="password-hint partner-pending-note">
+                        ⏳ Your application will be reviewed by our team. You'll be able to log in right away,
+                        but the Partner Dashboard stays locked until an admin approves your account.
+                    </p>
+
+                </div>
+
+                <div class="form-group">
+                    <label for="signupEmail">Email Address</label>
+                    <input type="email" id="signupEmail" placeholder="example@mail.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="signupPassword">Password</label>
+                    <input type="password" id="signupPassword" placeholder="••••••••" required>
+                    <small class="password-hint">Min 8 chars, 1 uppercase, 1 number, 1 special char</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" id="confirmPassword" placeholder="••••••••" required>
+                </div>
+
+                <div id="authError" class="auth-error-msg"></div>
+
+                <button type="submit" class="auth-btn">Create Account</button>
+            </form>
+
+            <div class="auth-footer">
+                Already have an account? <a href="login.html">Log In</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        function toggleBusinessField() {
+            const isPartner = document.querySelector('input[name="signupRole"]:checked').value === "partner";
+            const group = document.getElementById("businessNameGroup");
+            const input = document.getElementById("businessName");
+            const phone = document.getElementById("businessPhone");
+            const location = document.getElementById("businessLocation");
+            group.style.display = isPartner ? "block" : "none";
+            input.required = isPartner;
+            phone.required = isPartner;
+            location.required = isPartner;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Destination | Smart Maharashtra Tourism</title>
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8C%BF%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="style.css">
+
+<link
+rel="stylesheet"
+href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+/>
+
+<script
+src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
+</script>
+
+</head>
+
+<body>
+
+<header class="main-header">
+
+    <div class="logo">
+        🌿 Smart Maharashtra
+    </div>
+
+    <nav class="desktop-nav">
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="index.html#destinations">
+            Destinations
+        </a>
+
+        <a href="trips.html">
+            Plan Trip
+        </a>
+
+        <a href="reservations.html">
+            My Reservations
+        </a>
+
+        <a href="profile.html">
+            Profile
+        </a>
+
+        <a href="partner.html" id="navPartnerLink" style="display:none">
+            Partner Dashboard
+        </a>
+
+        <a href="admin.html" id="navAdminLink" style="display:none">
+            Admin
+        </a>
+
+    </nav>
+
+</header>
+
+
+<main class="destination-page">
+
+    <div id="placeDetails">
+
+        <div class="loading-card">
+            Loading destination...
+        </div>
+
+    </div>
+
+
+    <section class="destination-extra">
+
+        <div class="detail-panel">
+
+            <p class="eyebrow">
+                EXPERIENCE
+            </p>
+
+            <h2>
+                Eco & Cultural Experience
+            </h2>
+
+            <div id="ecoInfo">
+            </div>
+
+        </div>
+
+
+        <div class="detail-panel">
+
+            <p class="eyebrow">
+                LOCATION
+            </p>
+
+            <h2>
+                Explore on Map
+            </h2>
+
+            <div id="map"></div>
+
+            <div class="reach-panel">
+
+                <p class="reach-label">🧭 How to Reach</p>
+
+                <p id="reachInfo" class="reach-info">
+                    Get walking, driving or transit directions from where you are right now.
+                </p>
+
+                <div class="reach-actions">
+                    <button onclick="getDirections()" class="reach-btn" id="reachBtn">
+                        Get Directions →
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="detail-panel">
+
+            <p class="eyebrow">
+                GOOD TO KNOW
+            </p>
+
+            <h2>
+                Things to Do &amp; Best Time
+            </h2>
+
+            <div id="travelInfo"></div>
+
+            <button class="save-later-btn" id="saveLaterBtn" onclick="toggleSaveForLater()">
+                ☆ Save for Later
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <section class="experiences-section">
+
+        <div class="section-heading left">
+            <p>MARKETPLACE</p>
+            <h2>Partners &amp; Experiences</h2>
+            <span>Compare packages from different tourism operators for this destination.</span>
+        </div>
+
+        <div id="experiencesContainer">
+            <div class="loading-card">Loading experiences...</div>
+        </div>
+
+    </section>
+
+
+    <section class="review-section">
+
+        <div class="section-heading left">
+
+            <p>TRAVELLER EXPERIENCES</p>
+
+            <h2>
+                Reviews
+            </h2>
+
+        </div>
+
+
+        <form class="review-form" onsubmit="addReview(event)">
+
+            <input
+                id="reviewUser"
+                placeholder="Your name"
+            >
+
+            <select id="rating">
+
+                <option value="5">
+                    5 Stars
+                </option>
+
+                <option value="4">
+                    4 Stars
+                </option>
+
+                <option value="3">
+                    3 Stars
+                </option>
+
+                <option value="2">
+                    2 Stars
+                </option>
+
+                <option value="1">
+                    1 Star
+                </option>
+
+            </select>
+
+            <textarea
+                id="comment"
+                placeholder="Share your experience..."
+            ></textarea>
+
+            <div id="reviewError" class="auth-error-msg"></div>
+
+            <button
+                type="submit"
+                class="primary-btn">
+
+                Submit Review
+
+            </button>
+
+        </form>
+
+
+        <div id="reviewContainer">
+        </div>
+
+    </section>
+
+</main>
+
+
+<nav class="bottom-nav">
+
+    <a href="index.html">
+        <span>🏠</span>
+        <small>Home</small>
+    </a>
+
+    <a href="index.html#destinations">
+        <span>🗺️</span>
+        <small>Explore</small>
+    </a>
+
+    <a href="reservations.html">
+        <span>🧾</span>
+        <small>Reserved</small>
+    </a>
+
+    <a href="profile.html">
+        <span>👤</span>
+        <small>Profile</small>
+    </a>
+
+</nav>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
